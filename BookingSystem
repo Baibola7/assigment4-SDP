@@ -1,0 +1,15 @@
+// Product (BookingSystem) hierarchy
+abstract class BookingSystem {
+    protected String description;
+
+    public BookingSystem(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public abstract void confirm();
+}
+
