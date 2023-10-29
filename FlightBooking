@@ -1,0 +1,10 @@
+class FlightBooking extends BookingSystem {
+    public FlightBooking(String description) {
+        super(description);
+    }
+
+    @Override
+    public void confirm() {
+        System.out.println("Flight booking confirmed: " + description);
+    }
+}
