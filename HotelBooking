@@ -1,0 +1,10 @@
+class HotelBooking extends BookingSystem {
+    public HotelBooking(String description) {
+        super(description);
+    }
+
+    @Override
+    public void confirm() {
+        System.out.println("Hotel booking confirmed: " + description);
+    }
+}
