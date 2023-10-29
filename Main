@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        BookingFactory factory = new BookingFactory();
+        BookingNotifier notifier = new BookingNotifier();
+        BookingService bookingService = new BookingService(factory, notifier);
+
+        // Create users
+        User user1 = new User("User1");
+        User user2 = new User("User2");
+
+        // Add users as observers
+        notifier.addObserver(user1);
+        notifier.addObserver(user2);
+
+        // User interaction
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Enter booking type (flight, hotel, car) or 'exit' to quit:");
+            String input = scanner.nextLine().toLowerCase();
+
+            if (input.equals("exit")) {
+                break;
+            }
+
+            System.out.println("Enter booking description:");
+            String description = scanner.nextLine();
+
+            bookingService.orderBooking(input, description);
+        }
+
+        scanner.close();
+    }
+}
