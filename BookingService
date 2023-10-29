@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+// Service for ordering bookings
+class BookingService {
+    private BookingFactory factory;
+    private BookingNotifier notifier;
+
+    public BookingService(BookingFactory factory, BookingNotifier notifier) {
+        this.factory = factory;
+        this.notifier = notifier;
+    }
+    public void orderBooking(String type, String description) {
+        BookingSystem booking = factory.createBooking(type, description);
+        if (booking != null) {
+            booking.confirm();
+            notifier.notifyObservers(booking);
+        } else {
+            System.out.println("Invalid booking type.");
+        }
+    }
+}
+
