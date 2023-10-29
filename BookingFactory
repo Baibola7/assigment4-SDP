@@ -1,0 +1,14 @@
+// Factory
+class BookingFactory {
+    public BookingSystem createBooking(String type, String description) {
+        if (type.equalsIgnoreCase("flight")) {
+            return new FlightBooking(description);
+        } else if (type.equalsIgnoreCase("hotel")) {
+            return new HotelBooking(description);
+        } else if (type.equalsIgnoreCase("car")) {
+            return new CarRental(description);
+        } else {
+            return null;
+        }
+    }
+}
